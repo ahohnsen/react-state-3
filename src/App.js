@@ -25,7 +25,7 @@ export default function App() {
   const [movies, setMovies] = useState(initialMovieData);
 
   return (
-    <div className="app">
+    <main className="app">
       <h1>Favorite Movies</h1>
       <ul className="list">
         {movies.map((movie) => (
@@ -35,6 +35,6 @@ export default function App() {
         ))}
       </ul>
       <Form />
-    </div>
+    </main>
   );
 }
