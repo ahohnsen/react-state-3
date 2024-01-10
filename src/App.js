@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { uid } from "uid";
 import "./styles.css";
 import Movie from "./components/Movie/index.js";
 import Form from "./components/Form";
@@ -24,6 +25,10 @@ const initialMovieData = [
 export default function App() {
   const [movies, setMovies] = useState(initialMovieData);
 
+  function handleAddMovie(newMovie) {
+    setMovies([...movies, { id: uid(), ...newMovie }]);
+  }
+
   return (
     <main className="app">
       <h1>Favorite Movies</h1>
@@ -34,7 +39,7 @@ export default function App() {
           </li>
         ))}
       </ul>
-      <Form />
+      <Form onAddMovie={handleAddMovie} />
     </main>
   );
 }
